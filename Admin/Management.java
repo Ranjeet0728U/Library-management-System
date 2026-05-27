@@ -13,18 +13,17 @@ public class Management {
     /*=================================================Loading Book=======================================================*/
 
     public void LoadingDetails(){
-        try{
-            File AuthorNameFile = new File("./FolderName/AuthorName.txt");
-            File BookNameFile = new File("./FolderName/BookName.txt");
-            File NumberFile = new File("./FolderName/Number.txt");
-            File PublishYearFile = new File("./FolderName/PublishYear.txt");
+        File AuthorNameFile = new File("./FolderName/AuthorName.txt");
+        File BookNameFile = new File("./FolderName/BookName.txt");
+        File NumberFile = new File("./FolderName/Number.txt");
+        File PublishYearFile = new File("./FolderName/PublishYear.txt");
 
-            Scanner authorReader = new Scanner(AuthorNameFile);
-            Scanner BookNameReader = new Scanner(BookNameFile);
-            Scanner NumberReader = new Scanner(NumberFile);
-            Scanner PublishYearReader = new Scanner(PublishYearFile);
-
-
+        try (
+                Scanner authorReader = new Scanner(AuthorNameFile);
+                Scanner BookNameReader = new Scanner(BookNameFile);
+                Scanner NumberReader = new Scanner(NumberFile);
+                Scanner PublishYearReader = new Scanner(PublishYearFile)
+        ) {
             while(
                     authorReader.hasNextLine()
                     && BookNameReader.hasNextLine()
@@ -53,11 +52,6 @@ public class Management {
                 Book b1 = new Book(Author, year, number);
                 Library.put(BookName, b1);
             }
-
-            authorReader.close();
-            BookNameReader.close();
-            NumberReader.close();
-            PublishYearReader.close();
 
         } catch(Exception e){
             System.out.println("Exeception occured");
