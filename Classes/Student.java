@@ -1,25 +1,25 @@
-package Admin;
+package Classes;
 
 import java.util.ArrayList;
 
 public class Student {
 
-    private static class BookAssigned{
-        int number;
-        String nameOfBook;
-        BookAssigned(int number, String nameOfBook){
-            this.number = number;
-            this.nameOfBook = nameOfBook;
-        }
-    }
-    long rollNo;
-    long id;
-    ArrayList<BookAssigned>li = new ArrayList<>();
 
-    Student(long rollNo, long id, ArrayList<BookAssigned> tem){
-        this.id = id;
+
+    String name;
+    long rollNo;
+    ArrayList<String>li = new ArrayList<>();
+
+
+    Student(String name,long rollNo, long id,int number, ArrayList<String> tem){
+        this.name = name;
         this.rollNo = rollNo;
-        this.li.add(tem);
+        this.li.addAll(tem);
+
+    }
+
+    public int getNumber(){
+        return li.size();
     }
 
 }
